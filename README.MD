@@ -8,7 +8,7 @@
 
 <p align="center">
   <img alt="Java" src="https://img.shields.io/badge/Java-25-007396?style=for-the-badge&logo=openjdk&logoColor=white"/>
-  <img alt="Spring Boot" src="https://img.shields.io/badge/Spring_Boot-4.0.2-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
+  <img alt="Spring Boot" src="https://img.shields.io/badge/Spring_Boot-4.0.3-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
   <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-DB-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
   <img alt="API REST" src="https://img.shields.io/badge/API-REST-0A66C2?style=for-the-badge"/>
 </p>
