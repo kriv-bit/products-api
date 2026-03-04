@@ -1,10 +1,21 @@
-# EPW — Products API (Spring Boot + PostgreSQL)
+# 🛍️ EPW — Products API
 
-API REST de **productos** (CRUD) hecha siguiendo el mismo paso a paso del profe con el ejemplo de **Activities**, pero adaptada a `com.epw.products` y solo con lo que aplica para Products.
+<p align="center">
+  <b>Spring Boot + PostgreSQL</b><br/>
+  API REST de <b>productos</b> (CRUD), construida siguiendo el flujo del ejemplo de <i>Activities</i>,
+  adaptada a <code>com.epw.products</code> y enfocada únicamente en <b>Products</b>.
+</p>
+
+<p align="center">
+  <img alt="Java" src="https://img.shields.io/badge/Java-17-007396?style=for-the-badge&logo=openjdk&logoColor=white"/>
+  <img alt="Spring Boot" src="https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
+  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-DB-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+  <img alt="API REST" src="https://img.shields.io/badge/API-REST-0A66C2?style=for-the-badge"/>
+</p>
 
 ---
 
-## Qué se entregó
+## ✅ Qué se entregó
 
 - CRUD completo:
   - `POST /api/products`
@@ -18,35 +29,38 @@ API REST de **productos** (CRUD) hecha siguiendo el mismo paso a paso del profe 
 
 ---
 
-## Arquitectura 
+## 🧱 Arquitectura
 
-Paquete base: `com.epw.products`
+> **Paquete base:** `com.epw.products`
 
-- **entity**: `Product` (JPA)
-- **repository**: `ProductRepository`
-- **service**: `ProductService` (interfaz)
-- **service.impl**: `ProductServiceImpl` (lógica + mapper `toResponse`)
-- **controller**: `ProductController` (endpoints)
-- **dto**: `CreateProductRequest`, `UpdateProductRequest`, `ProductResponse`
-- **exception**: `ResourceNotFoundException`, `ApiError`, `GlobalExceptionHandler`
-
----
-
-## Modelo `Product`
-
-Campos:
-- `id`
-- `name`
-- `description`
-- `price`
-- `stock`
-- `createdAt` (**LocalDateTime**, se asigna automático con `@PrePersist`)
+| Capa | Componente | Descripción |
+|---|---|---|
+| `entity` | `Product` | Entidad JPA principal. |
+| `repository` | `ProductRepository` | Acceso a datos con Spring Data JPA. |
+| `service` | `ProductService` | Contrato de lógica de negocio. |
+| `service.impl` | `ProductServiceImpl` | Implementación de lógica + mapper `toResponse`. |
+| `controller` | `ProductController` | Exposición de endpoints REST. |
+| `dto` | `CreateProductRequest`, `UpdateProductRequest`, `ProductResponse` | Modelos de entrada/salida de API. |
+| `exception` | `ResourceNotFoundException`, `ApiError`, `GlobalExceptionHandler` | Manejo centralizado de errores. |
 
 ---
 
-## Evidencia en Postman 
+## 📦 Modelo `Product`
 
-> Carpeta: `screenshots/`
+| Campo | Tipo | Nota |
+|---|---|---|
+| `id` | `Long` | Identificador único. |
+| `name` | `String` | Nombre del producto. |
+| `description` | `String` | Descripción del producto. |
+| `price` | `BigDecimal` | Precio unitario. |
+| `stock` | `Integer` | Cantidad disponible. |
+| `createdAt` | `LocalDateTime` | Se asigna automáticamente con `@PrePersist`. |
+
+---
+
+## 🧪 Evidencia en Postman
+
+> 📁 Carpeta: `screenshots/`
 
 ### 1) Crear producto — `POST /api/products`
 Se crea un producto y la respuesta devuelve el `id` y `createdAt`.
@@ -90,5 +104,6 @@ Cuando el id no existe se devuelve 404 controlado.
 
 ---
 
-## Autor
-Kevin Rivera
+## 👤 Autor
+
+**Kevin Rivera**
