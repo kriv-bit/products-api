@@ -74,7 +74,7 @@ Cuando el id no existe se devuelve 404 con respuesta controlada por el handler.
 ![GET Validation](screenshots/ApiRest_GetValidacion.png)
 
 ### 6) Actualizar — `PUT /api/products/{id}`
-Actualización del producto (ej. cambio de precio para id = 1).
+Actualización del producto (ej. cambio de stock para id = 1).
 
 ![PUT](screenshots/ApiRest_PutActualizacionPrecioId1.png)
 
