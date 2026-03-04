@@ -23,7 +23,7 @@ API REST de **productos** (CRUD) hecha siguiendo el mismo paso a paso del profe 
 Paquete base: `com.epw.products`
 
 - **entity**: `Product` (JPA)
-- **repository**: `ProductRepository extends JpaRepository`
+- **repository**: `ProductRepository`
 - **service**: `ProductService` (interfaz)
 - **service.impl**: `ProductServiceImpl` (lógica + mapper `toResponse`)
 - **controller**: `ProductController` (endpoints)
