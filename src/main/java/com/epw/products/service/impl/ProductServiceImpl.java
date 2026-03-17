@@ -1,10 +1,13 @@
 package com.epw.products.service.impl;
 
 import com.epw.products.dto.CreateProductRequest;
+import com.epw.products.dto.BrandResponse;
 import com.epw.products.dto.ProductResponse;
 import com.epw.products.dto.UpdateProductRequest;
+import com.epw.products.entity.Brand;
 import com.epw.products.entity.Product;
 import com.epw.products.exception.ResourceNotFoundException;
+import com.epw.products.repository.BrandRepository;
 import com.epw.products.repository.ProductRepository;
 import com.epw.products.service.ProductService;
 import org.springframework.stereotype.Service;
@@ -17,9 +20,11 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
+    private final BrandRepository brandRepository;
 
-    public ProductServiceImpl(ProductRepository repository) {
+    public ProductServiceImpl(ProductRepository repository, BrandRepository brandRepository) {
         this.repository = repository;
+        this.brandRepository = brandRepository;
     }
 
     @Override
@@ -29,6 +34,7 @@ public class ProductServiceImpl implements ProductService {
         p.setDescription(request.getDescription());
         p.setPrice(request.getPrice());
         p.setStock(request.getStock());
+        p.setBrand(findBrand(request.getBrandId()));
 
         Product saved = repository.save(p);
         return toResponse(saved);
@@ -57,6 +63,7 @@ public class ProductServiceImpl implements ProductService {
         p.setDescription(request.getDescription());
         p.setPrice(request.getPrice());
         p.setStock(request.getStock());
+        p.setBrand(findBrand(request.getBrandId()));
 
         return toResponse(repository.save(p));
     }
@@ -77,6 +84,28 @@ public class ProductServiceImpl implements ProductService {
         r.setPrice(p.getPrice());
         r.setStock(p.getStock());
         r.setCreatedAt(p.getCreatedAt());
+        r.setBrand(toBrandResponse(p.getBrand()));
         return r;
+    }
+
+    private Brand findBrand(Long brandId) {
+        if (brandId == null) {
+            return null;
+        }
+
+        return brandRepository.findById(brandId)
+                .orElseThrow(() -> new ResourceNotFoundException("Brand " + brandId + " not found"));
+    }
+
+    private BrandResponse toBrandResponse(Brand brand) {
+        if (brand == null) {
+            return null;
+        }
+
+        BrandResponse response = new BrandResponse();
+        response.setId(brand.getId());
+        response.setName(brand.getName());
+        response.setCountry(brand.getCountry());
+        return response;
     }
 }

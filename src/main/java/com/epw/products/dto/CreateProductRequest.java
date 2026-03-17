@@ -25,6 +25,8 @@ public class CreateProductRequest {
     @Min(value = 0, message = "stock must be >= 0")
     private Integer stock;
 
+    private Long brandId;
+
     public String getName() {
         return name;
     }
@@ -55,5 +57,13 @@ public class CreateProductRequest {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
     }
 }

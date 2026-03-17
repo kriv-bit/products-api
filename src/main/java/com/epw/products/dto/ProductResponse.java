@@ -11,6 +11,7 @@ public class ProductResponse {
     private BigDecimal price;
     private Integer stock;
     private LocalDateTime createdAt;
+    private BrandResponse brand;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -29,4 +30,7 @@ public class ProductResponse {
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public BrandResponse getBrand() { return brand; }
+    public void setBrand(BrandResponse brand) { this.brand = brand; }
 }

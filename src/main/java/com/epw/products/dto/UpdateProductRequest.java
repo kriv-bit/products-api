@@ -25,6 +25,8 @@ public class UpdateProductRequest {
     @Min(value = 0, message = "stock must be >= 0")
     private Integer stock;
 
+    private Long brandId;
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
@@ -36,4 +38,7 @@ public class UpdateProductRequest {
 
     public Integer getStock() { return stock; }
     public void setStock(Integer stock) { this.stock = stock; }
+
+    public Long getBrandId() { return brandId; }
+    public void setBrandId(Long brandId) { this.brandId = brandId; }
 }
