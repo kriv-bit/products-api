@@ -32,6 +32,9 @@ public class Product {
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ProductSpecification specification;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
 
@@ -94,6 +97,14 @@ public class Product {
 
     public void setBrand(Brand brand) {
         this.brand = brand;
+    }
+
+    public ProductSpecification getSpecification() {
+        return specification;
+    }
+
+    public void setSpecification(ProductSpecification specification) {
+        this.specification = specification;
     }
 
     public List<Review> getReviews() {
